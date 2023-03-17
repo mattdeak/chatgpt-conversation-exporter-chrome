@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "Conversation Exporter",
+  "version": "1.0",
+  "description": "A Chrome extension to export conversation in JSON format",
+  "permissions": ["activeTab", "storage"],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icon.png"
+    }
+  },
+  "icons": {
+    "48": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.chat.openai.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  }
+}
